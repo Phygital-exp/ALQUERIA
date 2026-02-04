@@ -1,7 +1,7 @@
 {
-  "name": "bdf-proxy",
+  "name": "alqueria-proxy",
   "version": "1.0.0",
-  "description": "Proxy para BDF",
+  "description": "Proxy para Alquería",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
