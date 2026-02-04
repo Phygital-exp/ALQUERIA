@@ -26,7 +26,7 @@ async function loadData() {
 // Inicializar Fuse.js para búsqueda rápida
 function initializeFuse() {
     const options = {
-        keys: ['UNICO','NOMBRE PDV','UNICO','CIUDAD','RETAIL_ENVIRONMENT','CUSTOMER','CADENA','REGION'],
+        keys: ['SAP', 'CANAL', 'NOMBRE EMPRESA', 'REGIONAL NOVUUS', 'DEPARTAMENTO', 'MUNICIPIO', 'NOMBRE PV', 'DIRECCIÓN PV', 'HORARIO', 'CODIGO PDV', 'ID EMPRESA'],
         threshold: 0.3,
     };
     fuse = new Fuse(fullData, options);
@@ -59,16 +59,22 @@ function renderResults(results) {
         results.forEach(result => {
             output += `
                 <div class="result-item">
-                    <h3>${result.CUSTOMER}</h3>
+                    <h3>${result['NOMBRE EMPRESA'] || 'N/A'}</h3>
                     <ul>
-                        <li><strong>ID:</strong> ${result.UNICO || 'N/A'}
-                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.UNICO}')">content_copy</i>
+                        <li><strong>SAP:</strong> ${result.SAP || 'N/A'}
+                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i>
                         </li>
-                        <li><strong>Ciudad:</strong> ${result.CIUDAD || 'N/A'}</li>
-                        <li><strong>Retail Environment:</strong> ${result.RETAIL_ENVIRONMENT || 'N/A'}</li>
-                        <li><strong>Customer:</strong> ${result.CUSTOMER || 'N/A'}</li>
-                        <li><strong>Cadena:</strong> ${result.CADENA || 'N/A'}</li>
-                        <li><strong>Región:</strong> ${result.REGION || 'N/A'}</li>
+                        <li><strong>Canal:</strong> ${result.CANAL || 'N/A'}</li>
+                        <li><strong>ID Empresa:</strong> ${result['ID EMPRESA'] || 'N/A'}</li>
+                        <li><strong>Regional:</strong> ${result['REGIONAL NOVUUS'] || 'N/A'}</li>
+                        <li><strong>Departamento:</strong> ${result.DEPARTAMENTO || 'N/A'}</li>
+                        <li><strong>Municipio:</strong> ${result.MUNICIPIO || 'N/A'}</li>
+                        <li><strong>Nombre PDV:</strong> ${result['NOMBRE PV'] || 'N/A'}</li>
+                        <li><strong>Dirección:</strong> ${result['DIRECCIÓN PV'] || 'N/A'}</li>
+                        <li><strong>Código PDV:</strong> ${result['CODIGO PDV'] || 'N/A'}</li>
+                        <li><strong>Horas Febrero 2026:</strong> ${result['HORAS MES FEBRERO 2026'] || 'N/A'}</li>
+                        <li><strong>Visitas:</strong> ${result['NUMERO DE VISITAS MES'] || 'N/A'}</li>
+                        <li><strong>Horario:</strong> ${result.HORARIO || 'N/A'}</li>
                     </ul>
                 </div>
             `;
