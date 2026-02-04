@@ -26,7 +26,7 @@ async function loadData() {
 // Inicializar Fuse.js para búsqueda rápida
 function initializeFuse() {
     const options = {
-        keys: ['SAP', 'CANAL', 'NOMBRE EMPRESA', 'REGIONAL NOVUUS', 'DEPARTAMENTO', 'MUNICIPIO', 'NOMBRE PV', 'DIRECCIÓN PV', 'HORARIO', 'CODIGO PDV', 'ID EMPRESA'],
+        keys: ['SAP', 'CANAL', 'NOMBRE_EMPRESA', 'REGIONAL_NOVUUS', 'DEPARTAMENTO', 'MUNICIPIO', 'NOMBRE_PV', 'DIRECCION_PV', 'HORARIO', 'CODIGO_PDV', 'ID_EMPRESA'],
         threshold: 0.3,
     };
     fuse = new Fuse(fullData, options);
@@ -59,18 +59,15 @@ function renderResults(results) {
         results.forEach(result => {
             output += `
                 <div class="result-item">
-                    <h3>${result['NOMBRE PV'] || 'N/A'}</h3>
+                    <h3>${result.NOMBRE_PV || 'N/A'}</h3>
                     <ul>
                         <li><strong>SAP:</strong> ${result.SAP || 'N/A'}
                         <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i>
                         </li>
-                        <li><strong>Canal:</strong> ${result.CANAL || 'N/A'}</li>
                         <li><strong>Departamento:</strong> ${result.DEPARTAMENTO || 'N/A'}</li>
                         <li><strong>Municipio:</strong> ${result.MUNICIPIO || 'N/A'}</li>
-                        <li><strong>Nombre PDV:</strong> ${result['NOMBRE PV'] || 'N/A'}</li>
-                        <li><strong>Dirección:</strong> ${result['DIRECCIÓN PV'] || 'N/A'}</li>
-                        <li><strong>Horas Febrero 2026:</strong> ${result['HORAS MES FEBRERO 2026'] || 'N/A'}</li>
-                        <li><strong>Visitas:</strong> ${result['NUMERO DE VISITAS MES'] || 'N/A'}</li>
+                        <li><strong>Nombre PDV:</strong> ${result.NOMBRE_PV || 'N/A'}</li>
+                        <li><strong>Dirección:</strong> ${result.DIRECCION_PV || 'N/A'}</li>
                         <li><strong>Horario:</strong> ${result.HORARIO || 'N/A'}</li>
                     </ul>
                 </div>
