@@ -59,19 +59,16 @@ function renderResults(results) {
         results.forEach(result => {
             output += `
                 <div class="result-item">
-                    <h3>${result['NOMBRE EMPRESA'] || 'N/A'}</h3>
+                    <h3>${result['NOMBRE PV'] || 'N/A'}</h3>
                     <ul>
                         <li><strong>SAP:</strong> ${result.SAP || 'N/A'}
                         <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i>
                         </li>
                         <li><strong>Canal:</strong> ${result.CANAL || 'N/A'}</li>
-                        <li><strong>ID Empresa:</strong> ${result['ID EMPRESA'] || 'N/A'}</li>
-                        <li><strong>Regional:</strong> ${result['REGIONAL NOVUUS'] || 'N/A'}</li>
                         <li><strong>Departamento:</strong> ${result.DEPARTAMENTO || 'N/A'}</li>
                         <li><strong>Municipio:</strong> ${result.MUNICIPIO || 'N/A'}</li>
                         <li><strong>Nombre PDV:</strong> ${result['NOMBRE PV'] || 'N/A'}</li>
                         <li><strong>Dirección:</strong> ${result['DIRECCIÓN PV'] || 'N/A'}</li>
-                        <li><strong>Código PDV:</strong> ${result['CODIGO PDV'] || 'N/A'}</li>
                         <li><strong>Horas Febrero 2026:</strong> ${result['HORAS MES FEBRERO 2026'] || 'N/A'}</li>
                         <li><strong>Visitas:</strong> ${result['NUMERO DE VISITAS MES'] || 'N/A'}</li>
                         <li><strong>Horario:</strong> ${result.HORARIO || 'N/A'}</li>
