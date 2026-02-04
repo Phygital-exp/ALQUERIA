@@ -35,8 +35,8 @@ app.get("/api/alqueria/pdv", async (req, res) => {
         const data = await response.json();
         res.json(data);
     } catch (err) {
-        console.error("Error en el proxy BDF PDV:", err);
-        res.status(500).json({ error: "Error al obtener datos de BDF PDV", details: err.message });
+        console.error("Error en el proxy alqueria PDV:", err);
+        res.status(500).json({ error: "Error al obtener datos de Alquería PDV", details: err.message });
     }
 });
 
