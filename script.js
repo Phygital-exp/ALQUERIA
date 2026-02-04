@@ -2,7 +2,7 @@ let debounceTimer;
 let fuse = null;
 let fullData = [];
 
-const API_URL = 'https://bdf-production.up.railway.app/api/BDF/pdv';
+const API_URL = 'https://alqueria-production.up.railway.app/api/alqueria/pdv';
 
 // Cargar los datos de la API
 async function loadData() {
